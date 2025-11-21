@@ -1,0 +1,28 @@
+{
+	"schemaVersion": 1,
+	"id": "wich_frozen-zombies",
+	"version": "${version}",
+	"name": "Frozen Zombies",
+	"description": "Adds the Frozen Zombie from Minecraft Dungeons.",
+	"authors": [ "dovewich" ],
+	"contact": {
+		"homepage": "https://www.wich.fun/",
+		"sources": "https://github.com/OfficePigeon/Frozen-Zombie-Mod"
+	},
+	"license": "",
+	"icon": "assets/wich/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [ "fun.wich.FrozenZombiesMod" ],
+		"client": [ "fun.wich.client.FrozenZombiesClient" ]
+	},
+	"mixins": [
+		"wich.frozenzombies.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.17.3",
+		"minecraft": "~1.21.9",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}

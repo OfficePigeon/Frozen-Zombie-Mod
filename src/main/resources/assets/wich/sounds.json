@@ -1,0 +1,29 @@
+{
+  "entity.frozen_zombie.ambient": {
+	"sounds": [ "wich:mob/frozen_zombie/idle1", "wich:mob/frozen_zombie/idle2", "wich:mob/frozen_zombie/idle3" ],
+	"subtitle": "subtitles.entity.frozen_zombie.ambient"
+  },
+  "entity.frozen_zombie.death": {
+	"sounds": [  "wich:mob/frozen_zombie/death1", "wich:mob/frozen_zombie/death2", "wich:mob/frozen_zombie/death3", "wich:mob/frozen_zombie/death4" ],
+	"subtitle": "subtitles.entity.frozen_zombie.death"
+  },
+  "entity.frozen_zombie.hurt": {
+	"sounds": [ "wich:mob/frozen_zombie/hurt1", "wich:mob/frozen_zombie/hurt2", "wich:mob/frozen_zombie/hurt3" ],
+	"subtitle": "subtitles.entity.frozen_zombie.hurt"
+  },
+  "entity.frozen_zombie.step": {
+	"sounds": [ { "name": "entity.zombie.step", "type": "event"} ],
+	"subtitle": "subtitles.block.generic.footsteps"
+  },
+  "entity.frozen_zombie.converted_to_zombie": {
+	"sounds": [
+	  { "name": "mob/husk/convert1", "volume": 0.8 },
+	  { "name": "mob/husk/convert2", "volume": 0.8 }
+	],
+	"subtitle": "subtitles.entity.frozen_zombie.converted_to_zombie"
+  },
+  "entity.parrot.imitate.frozen_zombie": {
+	"sounds": [ { "name": "wich:entity.frozen_zombie.ambient", "pitch": 1.8, "type": "event", "volume": 0.6 } ],
+	"subtitle": "subtitles.entity.parrot.imitate.frozen_zombie"
+  }
+}

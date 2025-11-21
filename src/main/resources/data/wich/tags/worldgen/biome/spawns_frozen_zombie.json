@@ -1,0 +1,6 @@
+{
+  "values": [
+	{ "id": "minecraft:ice_spikes", "required": false },
+	{ "id": "minecraft:snowy_plains", "required": false }
+  ]
+}

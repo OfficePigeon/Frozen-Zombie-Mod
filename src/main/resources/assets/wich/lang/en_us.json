@@ -1,0 +1,11 @@
+{
+  "entity.wich.frozen_zombie": "Frozen Zombie",
+  "item.wich.frozen_zombie_spawn_egg": "Frozen Zombie Spawn Egg",
+  "subtitles.entity.zombie.converted_to_frozen_zombie": "Zombie converts to Frozen Zombie",
+  "subtitles.entity.frozen_zombie.converted_to_zombie": "Frozen Zombie converts to Zombie",
+  "subtitles.entity.frozen_zombie.ambient": "Frozen Zombie rattles",
+  "subtitles.entity.frozen_zombie.death": "Frozen Zombie dies",
+  "subtitles.entity.frozen_zombie.hurt": "Frozen Zombie hurts",
+  "subtitles.entity.frozen_zombie.step": "Frozen Zombie steps",
+  "subtitles.entity.parrot.imitate.frozen_zombie": "Parrot groans"
+}
