@@ -15,6 +15,10 @@
 	"sounds": [ "mob/zombie/step1", "mob/zombie/step2", "mob/zombie/step3", "mob/zombie/step4", "mob/zombie/step5" ],
 	"subtitle": "subtitles.block.generic.footsteps"
   },
+  "entity.zombie.converted_to_frozen_zombie": {
+	"sounds": [ "wich:mob/frozen_zombie/convert1", "wich:mob/frozen_zombie/convert2", "wich:mob/frozen_zombie/convert3", "wich:mob/frozen_zombie/convert4" ],
+	"subtitle": "subtitles.entity.zombie.converted_to_frozen_zombie"
+  },
   "entity.frozen_zombie.converted_to_zombie": {
 	"sounds": [
 	  { "name": "mob/husk/convert1", "volume": 0.8 },

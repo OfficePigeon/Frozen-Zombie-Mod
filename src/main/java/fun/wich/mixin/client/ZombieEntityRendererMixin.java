@@ -1,6 +1,6 @@
 package fun.wich.mixin.client;
 
-import fun.wich.FreezeConversionEntity;
+import fun.wich.ZombieFreezeTracker;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.ZombieBaseEntityRenderer;
 import net.minecraft.client.render.entity.ZombieEntityRenderer;
@@ -18,6 +18,6 @@ public abstract class ZombieEntityRendererMixin extends ZombieBaseEntityRenderer
 	@Override
 	public void updateRenderState(ZombieEntity zombieEntity, ZombieEntityRenderState state, float f) {
 		super.updateRenderState(zombieEntity, state, f);
-		if (zombieEntity instanceof FreezeConversionEntity freeze && freeze.FreezeConversionEntity_IsShaking()) state.shaking = true;
+		if (zombieEntity instanceof ZombieFreezeTracker freeze && freeze.ZombieFreezeTracker_IsShaking()) state.shaking = true;
 	}
 }

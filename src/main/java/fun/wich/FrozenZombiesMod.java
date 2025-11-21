@@ -28,7 +28,6 @@ import java.util.function.Function;
 
 public class FrozenZombiesMod implements ModInitializer {
 	public static final String MOD_ID = "wich";
-
 	public static final SoundEvent ENTITY_FROZEN_ZOMBIE_AMBIENT = register("entity.frozen_zombie.ambient");
 	public static final SoundEvent ENTITY_FROZEN_ZOMBIE_DEATH = register("entity.frozen_zombie.death");
 	public static final SoundEvent ENTITY_FROZEN_ZOMBIE_HURT = register("entity.frozen_zombie.hurt");
@@ -40,10 +39,8 @@ public class FrozenZombiesMod implements ModInitializer {
 		Identifier id = Identifier.of(MOD_ID, path);
 		return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
 	}
-
 	public static final TrackedData<Boolean> ZOMBIE_CONVERTING_IN_SNOW = DataTracker.registerData(ZombieEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	public static final TagKey<Biome> TAG_SPAWNS_FROZEN_ZOMBIES = TagKey.of(RegistryKeys.BIOME, Identifier.of(MOD_ID, "spawns_frozen_zombies"));
-
 	public static final EntityType<FrozenZombieEntity> FROZEN_ZOMBIE = register(
 			"frozen_zombie",
 			EntityType.Builder.create(FrozenZombieEntity::new, SpawnGroup.MONSTER)
@@ -53,22 +50,20 @@ public class FrozenZombiesMod implements ModInitializer {
 					.maxTrackingRange(8)
 					.notAllowedInPeaceful()
 	);
-	public static final EntityType<SlowingSnowballEntity> SLOWING_SNOWBALL = register(
-			"slowing_snowball",
-			EntityType.Builder.<SlowingSnowballEntity>create(SlowingSnowballEntity::new, SpawnGroup.MISC)
+	public static final EntityType<FrozenZombieSnowballEntity> FROZEN_ZOMBIE_SNOWBALL = register(
+			"frozen_zombie_snowball",
+			EntityType.Builder.<FrozenZombieSnowballEntity>create(FrozenZombieSnowballEntity::new, SpawnGroup.MISC)
 					.dropsNothing()
 					.dimensions(0.25F, 0.25F)
 					.maxTrackingRange(4)
 					.trackingTickInterval(10)
 	);
-
 	private static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> type) {
 		RegistryKey<EntityType<?>> key = RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(MOD_ID, name));
 		EntityType<T> entityType = type.build(key);
 		Registry.register(Registries.ENTITY_TYPE, key, entityType);
 		return entityType;
 	}
-
 	public static final Item FROZEN_ZOMBIE_SPAWN_EGG = register("frozen_zombie_spawn_egg", SpawnEggItem::new, new Item.Settings().spawnEgg(FROZEN_ZOMBIE));
 	public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
 		RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(MOD_ID, name));
@@ -76,7 +71,6 @@ public class FrozenZombiesMod implements ModInitializer {
 		Registry.register(Registries.ITEM, key, item);
 		return item;
 	}
-
 	@Override
 	public void onInitialize() {
 		//Attributes

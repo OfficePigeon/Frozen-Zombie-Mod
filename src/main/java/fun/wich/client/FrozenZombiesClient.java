@@ -12,6 +12,6 @@ public class FrozenZombiesClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		EntityRendererFactories.register(FrozenZombiesMod.FROZEN_ZOMBIE, FrozenZombieEntityRenderer::new);
-		EntityRendererFactories.register(FrozenZombiesMod.SLOWING_SNOWBALL, FlyingItemEntityRenderer::new);
+		EntityRendererFactories.register(FrozenZombiesMod.FROZEN_ZOMBIE_SNOWBALL, FlyingItemEntityRenderer::new);
 	}
 }

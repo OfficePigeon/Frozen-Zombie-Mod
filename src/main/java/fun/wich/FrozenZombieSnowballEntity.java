@@ -3,12 +3,9 @@ package fun.wich;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.RangedAttackMob;
-import net.minecraft.entity.ai.goal.ProjectileAttackGoal;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.BlazeEntity;
-import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -20,9 +17,9 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
 
-public class SlowingSnowballEntity extends ThrownItemEntity {
-	public SlowingSnowballEntity(EntityType<? extends SlowingSnowballEntity> entityType, World world) { super(entityType, world); }
-	public SlowingSnowballEntity(World world, LivingEntity owner, ItemStack stack) { super(FrozenZombiesMod.SLOWING_SNOWBALL, owner, world, stack); }
+public class FrozenZombieSnowballEntity extends ThrownItemEntity {
+	public FrozenZombieSnowballEntity(EntityType<? extends FrozenZombieSnowballEntity> entityType, World world) { super(entityType, world); }
+	public FrozenZombieSnowballEntity(World world, LivingEntity owner, ItemStack stack) { super(FrozenZombiesMod.FROZEN_ZOMBIE_SNOWBALL, owner, world, stack); }
 	@Override
 	protected Item getDefaultItem() { return Items.SNOWBALL; }
 	private ParticleEffect getParticleParameters() {
@@ -52,20 +49,5 @@ public class SlowingSnowballEntity extends ThrownItemEntity {
 			this.getEntityWorld().sendEntityStatus(this, (byte)3);
 			this.discard();
 		}
-	}
-
-	public static boolean targetSlowed(LivingEntity target) {
-		return target != null && (target.hasStatusEffect(StatusEffects.SLOWNESS) || target.inPowderSnow || target.wasInPowderSnow);
-	}
-	public static class SlowingProjectileAttackGoal extends ProjectileAttackGoal {
-		protected final MobEntity mob;
-		public SlowingProjectileAttackGoal(RangedAttackMob mob, double mobSpeed, int intervalTicks, float maxShootRange) {
-			super(mob, mobSpeed, intervalTicks, maxShootRange);
-			this.mob = (MobEntity)mob;
-		}
-		@Override
-		public boolean canStart() { return super.canStart() && !SlowingSnowballEntity.targetSlowed(this.mob.getTarget()); }
-		@Override
-		public boolean shouldContinue() { return super.shouldContinue() && !SlowingSnowballEntity.targetSlowed(this.mob.getTarget()); }
 	}
 }
