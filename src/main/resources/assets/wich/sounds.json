@@ -12,7 +12,7 @@
 	"subtitle": "subtitles.entity.frozen_zombie.hurt"
   },
   "entity.frozen_zombie.step": {
-	"sounds": [ { "name": "entity.zombie.step", "type": "event"} ],
+	"sounds": [ "mob/zombie/step1", "mob/zombie/step2", "mob/zombie/step3", "mob/zombie/step4", "mob/zombie/step5" ],
 	"subtitle": "subtitles.block.generic.footsteps"
   },
   "entity.frozen_zombie.converted_to_zombie": {
