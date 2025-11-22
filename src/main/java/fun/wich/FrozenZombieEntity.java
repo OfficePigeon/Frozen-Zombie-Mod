@@ -21,6 +21,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.LocalDifficulty;
@@ -98,5 +99,9 @@ public class FrozenZombieEntity extends ZombieEntity implements RangedAttackMob 
 		this.getEntityWorld().playSound(null, this.getBlockPos(), FrozenZombiesMod.ENTITY_FROZEN_ZOMBIE_CONVERTED_TO_ZOMBIE, SoundCategory.HOSTILE, 2.0f, (random.nextFloat() - random.nextFloat()) * 0.2f + 1.0f);
 	}
 	@Override public boolean canFreeze() { return false; }
-	@Override protected void initEquipment(Random random, LocalDifficulty localDifficulty) { }
+	@Override
+	protected void initEquipment(Random random, LocalDifficulty localDifficulty) {
+		super.initEquipment(random, localDifficulty);
+		this.setStackInHand(Hand.MAIN_HAND, ItemStack.EMPTY);
+	}
 }
