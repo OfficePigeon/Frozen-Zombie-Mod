@@ -1,5 +1,6 @@
 {
   "entity.wich.frozen_zombie": "Frozen Zombie",
+  "entity.wich.frozen_zombie_snowball": "Snowball",
   "item.wich.frozen_zombie_spawn_egg": "Frozen Zombie Spawn Egg",
   "subtitles.entity.zombie.converted_to_frozen_zombie": "Zombie converts to Frozen Zombie",
   "subtitles.entity.frozen_zombie.converted_to_zombie": "Frozen Zombie converts to Zombie",
