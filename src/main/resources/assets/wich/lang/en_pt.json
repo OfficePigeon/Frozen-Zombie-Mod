@@ -1,0 +1,11 @@
+{
+  "entity.wich.frozen_zombie": "Icey Undead Sailor",
+  "entity.wich.frozen_zombie_snowball": "Ball o' snow",
+  "item.wich.frozen_zombie_spawn_egg": "Icey Undead Sailor Cackle Fruit",
+  "subtitles.entity.zombie.converted_to_frozen_zombie": "Undead Sailor be on ice",
+  "subtitles.entity.frozen_zombie.converted_to_zombie": "Icey Undead Sailor melts",
+  "subtitles.entity.frozen_zombie.ambient": "Icey Undead Sailor groans",
+  "subtitles.entity.frozen_zombie.death": "Icey Undead Sailor perishes",
+  "subtitles.entity.frozen_zombie.hurt": "Icey Undead Sailor gets hurt",
+  "subtitles.entity.parrot.imitate.frozen_zombie": "Yer' best matey be groanin'"
+}
