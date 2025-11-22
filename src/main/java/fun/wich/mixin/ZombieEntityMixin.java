@@ -22,8 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ZombieEntity.class)
 public abstract class ZombieEntityMixin extends HostileEntity implements ZombieFreezeTracker {
-	@Unique
-	@SuppressWarnings("WrongEntityDataParameterClass")
+	@Unique @SuppressWarnings("WrongEntityDataParameterClass")
 	private static final TrackedData<Boolean> ZOMBIE_CONVERTING_IN_SNOW = DataTracker.registerData(ZombieEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	@Shadow
 	public abstract EntityType<? extends ZombieEntity> getType();
