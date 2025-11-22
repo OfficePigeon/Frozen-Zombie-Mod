@@ -30,7 +30,7 @@ public class FrozenZombiesMod implements ModInitializer {
 	public static final SoundEvent ENTITY_FROZEN_ZOMBIE_STEP = register("entity.frozen_zombie.step");
 	public static final SoundEvent ENTITY_FROZEN_ZOMBIE_CONVERTED_TO_ZOMBIE = register("entity.frozen_zombie.converted_to_zombie");
 	public static final SoundEvent ENTITY_ZOMBIE_CONVERTED_TO_FROZEN_ZOMBIE = register("entity.zombie.converted_to_frozen_zombie");
-	public static final SoundEvent ENTITY_PARROT_IMITATE_FROZEN_ZOMBIE = register("entity.parrot.imitate.sunken_skeleton");
+	public static final SoundEvent ENTITY_PARROT_IMITATE_FROZEN_ZOMBIE = register("entity.parrot.imitate.frozen_zombie");
 	private static SoundEvent register(String path) {
 		Identifier id = Identifier.of(MOD_ID, path);
 		return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
