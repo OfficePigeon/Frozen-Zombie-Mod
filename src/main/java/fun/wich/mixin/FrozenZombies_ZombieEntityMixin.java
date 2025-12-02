@@ -14,7 +14,6 @@ import net.minecraft.storage.ReadView;
 import net.minecraft.storage.WriteView;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -24,8 +23,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class FrozenZombies_ZombieEntityMixin extends HostileEntity implements ZombieFreezeTracker {
 	@Unique @SuppressWarnings("WrongEntityDataParameterClass")
 	private static final TrackedData<Boolean> ZOMBIE_CONVERTING_IN_SNOW = DataTracker.registerData(ZombieEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-	@Shadow
-	public abstract EntityType<? extends ZombieEntity> getType();
 	@Unique
 	private int inPowderSnowTime;
 	@Unique
