@@ -11,8 +11,8 @@ import net.minecraft.entity.mob.ZombieEntity;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(ZombieEntityRenderer.class)
-public abstract class ZombieEntityRendererMixin extends ZombieBaseEntityRenderer<ZombieEntity, ZombieEntityRenderState, ZombieEntityModel<ZombieEntityRenderState>> {
-	protected ZombieEntityRendererMixin(EntityRendererFactory.Context context, ZombieEntityModel<ZombieEntityRenderState> mainModel, ZombieEntityModel<ZombieEntityRenderState> babyMainModel, EquipmentModelData<ZombieEntityModel<ZombieEntityRenderState>> equipmentModelData, EquipmentModelData<ZombieEntityModel<ZombieEntityRenderState>> equipmentModelData2) {
+public abstract class FrozenZombies_ZombieEntityRendererMixin extends ZombieBaseEntityRenderer<ZombieEntity, ZombieEntityRenderState, ZombieEntityModel<ZombieEntityRenderState>> {
+	protected FrozenZombies_ZombieEntityRendererMixin(EntityRendererFactory.Context context, ZombieEntityModel<ZombieEntityRenderState> mainModel, ZombieEntityModel<ZombieEntityRenderState> babyMainModel, EquipmentModelData<ZombieEntityModel<ZombieEntityRenderState>> equipmentModelData, EquipmentModelData<ZombieEntityModel<ZombieEntityRenderState>> equipmentModelData2) {
 		super(context, mainModel, babyMainModel, equipmentModelData, equipmentModelData2);
 	}
 	@Override

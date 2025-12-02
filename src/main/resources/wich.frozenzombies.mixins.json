@@ -3,8 +3,8 @@
   "package": "fun.wich.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-	"ParrotEntityMixin",
-	"ZombieEntityMixin"
+	"FrozenZombies_ParrotEntityMixin",
+	"FrozenZombies_ZombieEntityMixin"
   ],
   "injectors": {
 	"defaultRequire": 1
@@ -13,6 +13,6 @@
 	"requireAnnotations": true
   },
   "client": [
-	"client.ZombieEntityRendererMixin"
+	"client.FrozenZombies_ZombieEntityRendererMixin"
   ]
 }
