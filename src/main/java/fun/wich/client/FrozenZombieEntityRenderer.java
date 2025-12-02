@@ -18,6 +18,6 @@ public class FrozenZombieEntityRenderer extends ZombieBaseEntityRenderer<FrozenZ
 		this.addFeature(new FrozenZombieOverlayFeatureRenderer(this, context.getEntityModels()));
 	}
 	@Override public ZombieEntityRenderState createRenderState() { return new ZombieEntityRenderState(); }
-	@Override public Identifier getTexture(ZombieEntityRenderState zombieEntityRenderState) { return TEXTURE; }
+	@Override public Identifier getTexture(ZombieEntityRenderState state) { return TEXTURE; }
 }
 

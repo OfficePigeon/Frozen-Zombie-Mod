@@ -21,7 +21,7 @@ public class FrozenZombieOverlayFeatureRenderer extends FeatureRenderer<ZombieEn
 		this.babyModel = new DrownedEntityModel(loader.getModelPart(EntityModelLayers.DROWNED_BABY_OUTER));
 	}
 	@Override
-	public void render(MatrixStack matrixStack, OrderedRenderCommandQueue orderedRenderCommandQueue, int i, ZombieEntityRenderState state, float f, float g) {
+	public void render(MatrixStack matrixStack, OrderedRenderCommandQueue orderedRenderCommandQueue, int i, ZombieEntityRenderState state, float headYaw, float headPitch) {
 		render(state.baby ? this.babyModel : this.model, SKIN, matrixStack, orderedRenderCommandQueue, i, state, -1, 1);
 	}
 }
