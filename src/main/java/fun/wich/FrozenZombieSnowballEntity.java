@@ -22,10 +22,11 @@ public class FrozenZombieSnowballEntity extends ThrownItemEntity {
 	public FrozenZombieSnowballEntity(World world, LivingEntity owner, ItemStack stack) { super(FrozenZombiesMod.FROZEN_ZOMBIE_SNOWBALL, owner, world, stack); }
 	@Override
 	protected Item getDefaultItem() { return Items.SNOWBALL; }
-	private ParticleEffect getParticleParameters() {
+	protected ParticleEffect getParticleParameters() {
 		ItemStack itemStack = this.getStack();
 		return itemStack.isEmpty() ? ParticleTypes.ITEM_SNOWBALL : new ItemStackParticleEffect(ParticleTypes.ITEM, itemStack);
 	}
+	@Override
 	public void handleStatus(byte status) {
 		if (status == 3) {
 			ParticleEffect particleEffect = this.getParticleParameters();
@@ -34,6 +35,7 @@ public class FrozenZombieSnowballEntity extends ThrownItemEntity {
 			}
 		}
 	}
+	@Override
 	protected void onEntityHit(EntityHitResult entityHitResult) {
 		super.onEntityHit(entityHitResult);
 		Entity entity = entityHitResult.getEntity();
@@ -43,6 +45,7 @@ public class FrozenZombieSnowballEntity extends ThrownItemEntity {
 		//noinspection deprecation
 		entity.serverDamage(this.getDamageSources().thrown(this, this.getOwner()), (float)i);
 	}
+	@Override
 	protected void onCollision(HitResult hitResult) {
 		super.onCollision(hitResult);
 		if (!this.getEntityWorld().isClient()) {

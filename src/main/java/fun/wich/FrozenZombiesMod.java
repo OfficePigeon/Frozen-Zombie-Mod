@@ -55,16 +55,12 @@ public class FrozenZombiesMod implements ModInitializer {
 	);
 	private static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> type) {
 		RegistryKey<EntityType<?>> key = RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(MOD_ID, name));
-		EntityType<T> entityType = type.build(key);
-		Registry.register(Registries.ENTITY_TYPE, key, entityType);
-		return entityType;
+		return Registry.register(Registries.ENTITY_TYPE, key, type.build(key));
 	}
 	public static final Item FROZEN_ZOMBIE_SPAWN_EGG = register("frozen_zombie_spawn_egg", SpawnEggItem::new, new Item.Settings().spawnEgg(FROZEN_ZOMBIE));
 	public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
 		RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(MOD_ID, name));
-		Item item = itemFactory.apply(settings.registryKey(key));
-		Registry.register(Registries.ITEM, key, item);
-		return item;
+		return Registry.register(Registries.ITEM, key, itemFactory.apply(settings.registryKey(key)));
 	}
 	@Override
 	public void onInitialize() {

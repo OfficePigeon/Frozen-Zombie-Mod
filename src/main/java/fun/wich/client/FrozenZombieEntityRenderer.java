@@ -17,7 +17,7 @@ public class FrozenZombieEntityRenderer extends ZombieBaseEntityRenderer<FrozenZ
 		super(context, new DrownedEntityModel(context.getPart(EntityModelLayers.DROWNED)), new DrownedEntityModel(context.getPart(EntityModelLayers.DROWNED_BABY)), EquipmentModelData.mapToEntityModel(EntityModelLayers.DROWNED_EQUIPMENT, context.getEntityModels(), DrownedEntityModel::new), EquipmentModelData.mapToEntityModel(EntityModelLayers.DROWNED_BABY_EQUIPMENT, context.getEntityModels(), DrownedEntityModel::new));
 		this.addFeature(new FrozenZombieOverlayFeatureRenderer(this, context.getEntityModels()));
 	}
-	public ZombieEntityRenderState createRenderState() { return new ZombieEntityRenderState(); }
-	public Identifier getTexture(ZombieEntityRenderState zombieEntityRenderState) { return TEXTURE; }
+	@Override public ZombieEntityRenderState createRenderState() { return new ZombieEntityRenderState(); }
+	@Override public Identifier getTexture(ZombieEntityRenderState zombieEntityRenderState) { return TEXTURE; }
 }
 

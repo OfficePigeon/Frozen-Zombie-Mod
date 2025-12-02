@@ -93,7 +93,8 @@ public class FrozenZombieEntity extends ZombieEntity implements RangedAttackMob 
 	@Override protected SoundEvent getHurtSound(DamageSource source) { return FrozenZombiesMod.ENTITY_FROZEN_ZOMBIE_HURT; }
 	@Override protected SoundEvent getDeathSound() { return FrozenZombiesMod.ENTITY_FROZEN_ZOMBIE_DEATH; }
 	@Override protected SoundEvent getStepSound() { return FrozenZombiesMod.ENTITY_FROZEN_ZOMBIE_STEP; }
-	protected boolean canConvertInWater() { return true; }
+	@Override protected boolean canConvertInWater() { return true; }
+	@Override
 	protected void convertInWater() {
 		this.convertTo(EntityType.ZOMBIE);
 		this.getEntityWorld().playSound(null, this.getBlockPos(), FrozenZombiesMod.ENTITY_FROZEN_ZOMBIE_CONVERTED_TO_ZOMBIE, SoundCategory.HOSTILE, 2.0f, (random.nextFloat() - random.nextFloat()) * 0.2f + 1.0f);
