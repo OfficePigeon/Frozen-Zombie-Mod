@@ -43,8 +43,8 @@ public class FrozenZombieEntity extends ZombieEntity implements RangedAttackMob 
 		this.targetSelector.add(5, new ActiveTargetGoal<>(this, TurtleEntity.class, 10, true, false, TurtleEntity.BABY_TURTLE_ON_LAND_FILTER));
 	}
 	@Override
-	public boolean tryAttack(ServerWorld world, Entity target) {
-		boolean bl = super.tryAttack(world, target);
+	public boolean tryAttack(Entity target) {
+		boolean bl = super.tryAttack(target);
 		if (bl && this.getMainHandStack().isEmpty() && target instanceof LivingEntity living) {
 			float f = this.getEntityWorld().getLocalDifficulty(this.getBlockPos()).getLocalDifficulty();
 			living.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 140 * (int)f), this);
@@ -53,10 +53,8 @@ public class FrozenZombieEntity extends ZombieEntity implements RangedAttackMob 
 	}
 	public static class FrozenZombieAttackGoal extends ZombieAttackGoal {
 		public FrozenZombieAttackGoal(ZombieEntity zombie, double speed, boolean pauseWhenMobIdle) { super(zombie, speed, pauseWhenMobIdle); }
-		@Override
-		public boolean canStart() { return super.canStart() && IsTargetSlowed(this.mob.getTarget()); }
-		@Override
-		public boolean shouldContinue() { return super.shouldContinue() && IsTargetSlowed(this.mob.getTarget()); }
+		@Override public boolean canStart() { return super.canStart() && IsTargetSlowed(this.mob.getTarget()); }
+		@Override public boolean shouldContinue() { return super.shouldContinue() && IsTargetSlowed(this.mob.getTarget()); }
 	}
 	public static boolean IsTargetSlowed(LivingEntity target) {
 		return target != null && (target.hasStatusEffect(StatusEffects.SLOWNESS) || target.inPowderSnow || target.wasInPowderSnow);
@@ -67,10 +65,8 @@ public class FrozenZombieEntity extends ZombieEntity implements RangedAttackMob 
 			super(mob, mobSpeed, intervalTicks, maxShootRange);
 			this.mob = (MobEntity)mob;
 		}
-		@Override
-		public boolean canStart() { return super.canStart() && !IsTargetSlowed(this.mob.getTarget()); }
-		@Override
-		public boolean shouldContinue() { return super.shouldContinue() && !IsTargetSlowed(this.mob.getTarget()); }
+		@Override public boolean canStart() { return super.canStart() && !IsTargetSlowed(this.mob.getTarget()); }
+		@Override public boolean shouldContinue() { return super.shouldContinue() && !IsTargetSlowed(this.mob.getTarget()); }
 	}
 	public static boolean canSpawn(EntityType<FrozenZombieEntity> type, ServerWorldAccess world, SpawnReason spawnReason, BlockPos pos, Random random) {
 		BlockPos blockPos = pos;
@@ -84,8 +80,9 @@ public class FrozenZombieEntity extends ZombieEntity implements RangedAttackMob 
 		double f = target.getZ() - this.getZ();
 		double g = Math.sqrt(d * d + f * f) * 0.2;
 		if (this.getEntityWorld() instanceof ServerWorld serverWorld) {
-			ItemStack itemStack = new ItemStack(Items.SNOWBALL);
-			ProjectileEntity.spawn(new FrozenZombieSnowballEntity(serverWorld, this, itemStack), serverWorld, itemStack, (entity) -> entity.setVelocity(d, e + g - entity.getY(), f, 1.6F, 12.0F));
+			ProjectileEntity entity = new FrozenZombieSnowballEntity(serverWorld, this);
+			entity.setVelocity(d, e + g - entity.getY(), f, 1.6F, 12.0F);
+			serverWorld.spawnEntity(entity);
 		}
 		this.playSound(SoundEvents.ENTITY_SNOWBALL_THROW, 1.0F, 0.4F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
 	}

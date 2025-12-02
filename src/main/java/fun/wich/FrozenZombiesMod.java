@@ -43,24 +43,22 @@ public class FrozenZombiesMod implements ModInitializer {
 					.eyeHeight(1.74F)
 					.vehicleAttachment(-0.7F)
 					.maxTrackingRange(8)
-					.notAllowedInPeaceful()
 	);
 	public static final EntityType<FrozenZombieSnowballEntity> FROZEN_ZOMBIE_SNOWBALL = register(
 			"frozen_zombie_snowball",
 			EntityType.Builder.<FrozenZombieSnowballEntity>create(FrozenZombieSnowballEntity::new, SpawnGroup.MISC)
-					.dropsNothing()
 					.dimensions(0.25F, 0.25F)
 					.maxTrackingRange(4)
 					.trackingTickInterval(10)
 	);
 	private static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> type) {
-		RegistryKey<EntityType<?>> key = RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(MOD_ID, name));
-		return Registry.register(Registries.ENTITY_TYPE, key, type.build(key));
+		Identifier id = Identifier.of(MOD_ID, name);
+		return Registry.register(Registries.ENTITY_TYPE, id, type.build(id.toString()));
 	}
-	public static final Item FROZEN_ZOMBIE_SPAWN_EGG = register("frozen_zombie_spawn_egg", SpawnEggItem::new, new Item.Settings().spawnEgg(FROZEN_ZOMBIE));
+	public static final Item FROZEN_ZOMBIE_SPAWN_EGG = register("frozen_zombie_spawn_egg", settings -> new SpawnEggItem(FROZEN_ZOMBIE, 0xffffff, 0xffffff, settings), new Item.Settings());
 	public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
 		RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(MOD_ID, name));
-		return Registry.register(Registries.ITEM, key, itemFactory.apply(settings.registryKey(key)));
+		return Registry.register(Registries.ITEM, key, itemFactory.apply(settings));
 	}
 	@Override
 	public void onInitialize() {

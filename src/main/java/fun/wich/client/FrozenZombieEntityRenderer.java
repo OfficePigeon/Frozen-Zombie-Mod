@@ -7,17 +7,15 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.ZombieBaseEntityRenderer;
 import net.minecraft.client.render.entity.model.*;
-import net.minecraft.client.render.entity.state.ZombieEntityRenderState;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
-public class FrozenZombieEntityRenderer extends ZombieBaseEntityRenderer<FrozenZombieEntity, ZombieEntityRenderState, DrownedEntityModel> {
+public class FrozenZombieEntityRenderer extends ZombieBaseEntityRenderer<FrozenZombieEntity, DrownedEntityModel<FrozenZombieEntity>> {
 	private static final Identifier TEXTURE = Identifier.of(FrozenZombiesMod.MOD_ID, "textures/entity/zombie/frozen.png");
 	public FrozenZombieEntityRenderer(EntityRendererFactory.Context context) {
-		super(context, new DrownedEntityModel(context.getPart(EntityModelLayers.DROWNED)), new DrownedEntityModel(context.getPart(EntityModelLayers.DROWNED_BABY)), EquipmentModelData.mapToEntityModel(EntityModelLayers.DROWNED_EQUIPMENT, context.getEntityModels(), DrownedEntityModel::new), EquipmentModelData.mapToEntityModel(EntityModelLayers.DROWNED_BABY_EQUIPMENT, context.getEntityModels(), DrownedEntityModel::new));
-		this.addFeature(new FrozenZombieOverlayFeatureRenderer(this, context.getEntityModels()));
+		super(context, new DrownedEntityModel<>(context.getPart(EntityModelLayers.DROWNED)), new DrownedEntityModel<>(context.getPart(EntityModelLayers.DROWNED_INNER_ARMOR)), new DrownedEntityModel<>(context.getPart(EntityModelLayers.DROWNED_OUTER_ARMOR)));
+		this.addFeature(new FrozenZombieOverlayFeatureRenderer(this, context.getModelLoader()));
 	}
-	@Override public ZombieEntityRenderState createRenderState() { return new ZombieEntityRenderState(); }
-	@Override public Identifier getTexture(ZombieEntityRenderState zombieEntityRenderState) { return TEXTURE; }
+	@Override public Identifier getTexture(FrozenZombieEntity state) { return TEXTURE; }
 }
 
