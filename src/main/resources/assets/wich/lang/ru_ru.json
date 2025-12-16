@@ -1,0 +1,12 @@
+{
+    "entity.wich.frozen_zombie": "Замороженный зомби",
+    "entity.wich.frozen_zombie_snowball": "Снежок",
+    "item.wich.frozen_zombie_spawn_egg": "Яйцо призыва замороженного зомби",
+    "subtitles.entity.zombie.converted_to_frozen_zombie": "Зомби превратился в замороженного зомби",
+    "subtitles.entity.frozen_zombie.converted_to_zombie": "Замороженный зомби превратился в обычного зомби",
+    "subtitles.entity.frozen_zombie.ambient": "Замороженный зомби стонет",
+    "subtitles.entity.frozen_zombie.death": "Замороженный зомби погибает",
+    "subtitles.entity.frozen_zombie.hurt": "Замороженный зомби ранен",
+    "subtitles.entity.parrot.imitate.frozen_zombie": "Попугай стонет как замороженный зомби",
+    "modmenu.descriptionTranslation.wich_frozen-zombies": "Добавляет замороженного зомби из Minecraft Earth"
+  }
