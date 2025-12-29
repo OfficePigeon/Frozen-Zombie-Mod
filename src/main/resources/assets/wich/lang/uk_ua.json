@@ -1,0 +1,12 @@
+{
+  "entity.wich.frozen_zombie": "Заморозень",
+  "entity.wich.frozen_zombie_snowball": "Сніжка",
+  "item.wich.frozen_zombie_spawn_egg": "Яйце виклику заморозня",
+  "subtitles.entity.zombie.converted_to_frozen_zombie": "Зомбі перетворюєтсья на заморозня",
+  "subtitles.entity.frozen_zombie.converted_to_zombie": "Заморозень перетворюєтсья на зомбі",
+  "subtitles.entity.frozen_zombie.ambient": "Заморозень стогне",
+  "subtitles.entity.frozen_zombie.death": "Заморозень гине",
+  "subtitles.entity.frozen_zombie.hurt": "Заморозня поранено",
+  "subtitles.entity.parrot.imitate.frozen_zombie": "Папуга стогне",
+  "modmenu.descriptionTranslation.wich_frozen-zombies": "Додає заморозня з Minecraft Dungeons."
+}
